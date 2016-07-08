@@ -1,0 +1,91 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/*
+上面是自动生成的
+*/
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,body{
+  height:100%
+}
+body{
+  background: #000;
+  color: #fff;
+  text-align: center;
+  overflow-y: hidden;
+}
+header,
+.left,
+.right{
+  position: absolute;
+}
+header{
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  height: 150px;
+  border: solid #fff 1px;
+}
+header h1{
+  font-size: 40px;
+  height: 60px;
+  line-height: 60px;
+}
+.left{
+  left: 10px;
+  top: 170px;
+  bottom: 10px;
+  width: 200px;
+  border: solid #fff 1px;
+}
+.left ul{
+  overflow: auto;
+}
+.left ul li{
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.left ul li.selected{
+  color: green;
+}
+.right{
+  top:170px;
+  right: 10px;
+  bottom: 10px;
+  left: 220px;
+  border:solid #fff 1px;
+}
+.tab{
+  overflow: hidden;
+  width: 210px;
+  margin: 8px auto 12px;
+  border: 1px solid #fff;
+  border-radius: 8px;
+}
+.tab li{
+  list-style: none;
+  float: left;
+  width:50%;
+  height: 30px;
+  line-height: 30px;
+}
+.tab li.selected{
+  color: #000;
+  background-color: #fff;
+}
+
