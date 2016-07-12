@@ -75,21 +75,20 @@ $(function () {
         $(this).addClass('selected').siblings().removeClass('selected');
     });
 
-
+    var line;
     function resize() {
         $box = $('#box');
-        $canvas = $('#canvas');
+                $canvas = $('#canvas');
+        
+                height = $box.height();
+                width = $box.width();
 
-        height = $box.height();
-        width = $box.width();
-
-        var line = ctx.createLinearGradient(0, 0, 0, height);
+        line = ctx.createLinearGradient(0, 0, 0, height);
         line.addColorStop(0, "red");
         line.addColorStop(0.5, "yellow");
         line.addColorStop(1, "green");
         $canvas.height(height);
         $canvas.width(width);
-        ctx.fillStyle = line;
         getDots();
     }
 
@@ -133,6 +132,7 @@ $(function () {
     function draw(arr) {
         ctx.clearRect(0, 0, width, height);
         var w = width / size;
+        ctx.fillStyle = line;
         for (var i = 0; i < 128; i++) {
             if (draw.type == "colume") {
                 var h = arr[i] / 256 * height;//?????
@@ -142,8 +142,13 @@ $(function () {
                 var o = Dots[i];
                 var r = arr[i] / 256 * 50;
                 ctx.arc(o.x, o.y,r, 0, Math.PI * 2, true);
-                ctx.strockStyle = "#fff";
-                ctx.stroke();
+                var g = ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,r);
+                g.addColorStop(0,'#fff');
+                g.addColorStop(1,o.color);
+                ctx.fillStyle = g;
+                ctx.fill();
+                /*ctx.strockStyle = "#fff";
+                ctx.stroke();*/
             }
 
         }
